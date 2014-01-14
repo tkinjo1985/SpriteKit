@@ -53,7 +53,7 @@
 
 - (void)updateWithTimeSinceLastUpdate:(CFTimeInterval)timeSinceLast {
     self.lastSpawnTimeInterval += timeSinceLast;
-    if (self.lastSpawnTimeInterval >1.0) {
+    if (self.lastSpawnTimeInterval >1) {
         self.lastSpawnTimeInterval = 0;
         [self addMonster];
     }
@@ -63,7 +63,7 @@
     //Handle time dalte
     //If we drop below 60fps,we still want everything to move the same distance.
     CFTimeInterval timeSinceLast = currentTime - self.lastUpdateTimeInterval;
-    if (timeSinceLast >1.0) {
+    if (timeSinceLast >1) {
         timeSinceLast = 1.0 / 60.0;
         self.lastUpdateTimeInterval = currentTime;
     }
